@@ -1,0 +1,32 @@
+<app-header></app-header>
+
+<mat-drawer-container class="admin-container">
+  <!-- Sidebar -->
+  <mat-drawer mode="side" opened class="admin-left">
+    <div class="sidebar-title">Admin Panel</div>
+    <a routerLink="dashboard" routerLinkActive="active">
+      <mat-icon>dashboard</mat-icon>
+      <span>Dashboard</span>
+    </a>
+    <a routerLink="accounts" routerLinkActive="active">
+      <mat-icon>account_circle</mat-icon>
+      <span>Accounts</span>
+    </a>
+    <a routerLink="banks" routerLinkActive="active">
+      <mat-icon>account_balance</mat-icon>
+      <span>Banks</span>
+    </a>
+    <a routerLink="transactions" routerLinkActive="active">
+      <mat-icon>receipt_long</mat-icon>
+      <span>Transactions</span>
+    </a>
+  
+  </mat-drawer>
+
+  <!-- Ana içerik -->
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+<app-footer></app-footer>

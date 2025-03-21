@@ -1,0 +1,76 @@
+.footer {
+    background: #2C3E50; /* Koyu profesyonel mavi */
+    color: #EEEECE; /* Soft beyaz */
+    padding: 20px 0;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px 30px;
+}
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.footer-nav ul li {
+    margin: 0 15px;
+}
+
+.footer-nav ul li a {
+    color: #A1C084; /* Olivine */
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.footer-nav ul li a:hover {
+    background: rgba(224, 82, 99, 0.3); /* Paradise Pink hover */
+    color: #E05263; /* Paradise Pink */
+}
+
+.copyright {
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.copyright a {
+    color: #E05263; /* Paradise Pink */
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.copyright a:hover {
+    text-decoration: underline;
+    color: #A1C084; /* Olivine */
+}
+
+/* Mobil Uyumlu Tasarım */
+@media (max-width: 768px) {
+    .container-fluid {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-nav ul {
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .footer-nav ul li {
+        margin: 5px 0;
+    }
+}

@@ -1,0 +1,64 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+    <ng-container matColumnDef="userId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>User ID</th>
+      <td mat-cell *matCellDef="let element">{{ element.userId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="accountNumber">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Account Number</th>
+      <td mat-cell *matCellDef="let element">{{ element.accountNumber }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="bankId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Bank ID</th>
+      <td mat-cell *matCellDef="let element">{{ element.bankId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="balance">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Balance</th>
+      <td mat-cell *matCellDef="let element">{{ element.balance }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="currency">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Currency</th>
+      <td mat-cell *matCellDef="let element">{{ element.currency }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element"
+            appDelete
+            [id]="element.id"
+            [currentPage]="currentPage"
+            [pageSize]="pageSize"
+            (callback)="loadAccounts($event.page, $event.pageSize)">
+        </td>
+    </ng-container>
+      
+      
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+        <td mat-cell *matCellDef="let element">
+            <mat-icon>edit</mat-icon>
+        </td>
+      </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator 
+    [length]="totalCount" 
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 20]" 
+    showFirstLastButtons>
+  </mat-paginator>
+
+</div>

@@ -1,0 +1,58 @@
+/* Genel Drawer Container Stili */
+.product-create {
+    height: 100vh;
+    display: flex;
+    background-color: #EEEECE; /* Eggshell - Arka plan */
+    border-radius: 8px;
+
+  }
+  
+  /* Drawer (Yan Panel) Stili */
+  mat-drawer {
+    flex: 1;
+    border-radius: 8px;
+    width: 300px;
+    background: #A1C084; /* Olivine - Yan panelin rengi */
+    color: #2E3B32; /* Koyu yeşil ton */
+    padding: 10px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    border-right: 3px solid #659157; /* Russian Green çerçeve */
+  }
+  
+  /* Drawer İçeriği (Sağdaki Liste Alanı) */
+  mat-drawer-content {
+    flex: 1;
+    padding: 20px;
+    background: white;
+    color: #2E3B32; /* Yazı rengi */
+  }
+  
+  /* App Create Bileşeni (Yan Panel İçindeki Alan) */
+  app-create {
+    display: block;
+    background: rgba(161, 192, 132, 0.2); /* Hafif transparan olivine */
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  /* App List Bileşeni (Sağ İçerik Alanı) */
+  app-list {
+    display: block;
+    background: rgba(224, 82, 99, 0.05); /* Paradise Pink tonlarında çok hafif bir arka plan */
+    padding: 20px;
+    border-radius: 12px;
+  }
+  
+  /* Drawer Hover Efekti */
+  mat-drawer:hover {
+    background: #8DAF6C; /* Biraz daha koyu yeşil ton */
+    transition: 0.3s ease-in-out;
+  }
+  
+  /* Mobil Ekran İçin Drawer */
+  @media (max-width: 768px) {
+    mat-drawer {
+      width: 250px;
+    }
+  }
+  

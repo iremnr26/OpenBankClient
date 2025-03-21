@@ -1,0 +1,119 @@
+/* Navbar genel tasarımı */
+.navbar {
+    background-color: #EEEECE !important; /* Baskın sarı */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 20px 20px;
+    padding: 20px 50px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Navbar markası */
+  .navbar-brand {
+    color: #A1C084 !important;  
+    font-weight: bold;
+    font-size: 30px;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-brand:hover {
+    color: #659157 !important; /* Pastel yeşil */
+  }
+  
+  .nav-item{
+    padding-left: 30px;
+    padding-right: 30px;
+
+  }
+  /* Navbar linkleri */
+  .navbar-nav .nav-link {
+    color: #659157 !important;  /* Pastel yeşil */
+    font-size: 18px;
+    margin-right: 20px;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #A1C084 !important; /* Pembe tonu */
+    transform: translateY(-3px);
+  }
+  
+  .navbar-nav .nav-link.active {
+    color: #A1C084 !important;
+    font-weight: bold;
+    border-bottom: 3px solid #A1C084;
+  }
+  
+  /* Yönetim paneli butonu */
+  .btn-outline-success {
+    border-color: #A1C084;
+    color: #A1C084;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+ 
+
+  .btn-outline-success:hover {
+    background-color: #A1C084;
+    color: #EEEECE;
+  }
+  
+  /* Arama kutusu */
+  .form-control {
+    border-radius: 25px;
+    border: 1px solid #A1C084;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .form-control:focus {
+    border-color: #A1C084;
+    box-shadow: 0 0 10px rgba(224, 82, 99, 0.5);
+  }
+  
+  /* Navbar toggler ikonu */
+  .navbar-toggler {
+    border-color: #A1C084;
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(224, 82, 99, 0.7)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+  
+  /* Dropdown menü */
+  .dropdown-menu {
+    background-color: #EEEECE;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: none;
+    padding: 10px;
+  }
+  
+  .dropdown-item {
+    color: #659157;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #A1C084;
+    color: #EEEECE;
+  }
+  
+/* Mobil görünümde butonu ortalamak için media query */
+@media (max-width: 768px) {
+    .nav-item button {
+      display:bloc;
+      margin: 10px auto; /* Ortalamak için otomatik margin */
+      width: 80%;        /* Genişlik ayarı */
+      text-align: center;
+    }
+  
+    /* Dropdown ve diğer nav-item'lar da ortalanıyor */
+    .navbar-nav {
+      flex-direction: column;
+      align-items: center;
+    }
+  }

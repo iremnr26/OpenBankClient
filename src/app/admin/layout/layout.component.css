@@ -1,0 +1,86 @@
+/* Ana container */
+.admin-container {
+    width: 100%;
+    height: calc(100vh - 120px);
+    margin: 0;
+    border: none;
+    background: #f4f7f6;
+    display: flex;
+    box-shadow: 0 4px 15px rgb(0, 0, 0)
+    ;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  /* Sidebar tasarımı */
+  .admin-left {
+    width: 250px;
+    background-color:rgb(255,255,224)
+    ;
+    color: #808000	;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .admin-left a {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #808000	;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  .admin-left a:hover {
+    background-color: #c5c5a5;
+    color: #ffffcc	;
+    cursor: pointer;
+    border-left: 4px solid #808000;
+  }
+  
+  /* Sidebar ikonu */
+  .admin-left a mat-icon {
+    font-size: 24px;
+    color: #ddddbb;
+  }
+  
+  /* Sidebar başlık kısmı */
+  .sidebar-title {
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0 20px 20px;
+  }
+  
+  /* Ana içerik alanı */
+  mat-drawer-content {
+    flex: 1;
+    background-color: #fff;
+    padding: 30px;
+    overflow-y: auto;
+    border-radius: 0 12px 12px 0;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Responsive yapı */
+  @media (max-width: 768px) {
+    .sidebar-title{
+      visibility: hidden;
+    }
+    .admin-left {
+      width: 70px;
+    }
+    .admin-left a span {
+      display: none;
+    }
+    .admin-left a mat-icon {
+      margin: 0 auto;
+    }
+  }
+  

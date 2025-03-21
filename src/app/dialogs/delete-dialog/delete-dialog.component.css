@@ -1,0 +1,73 @@
+/* 🔥 Genel Dialog Stil Ayarları */
+::ng-deep .mat-mdc-dialog-container {
+    border-radius: 16px; /* Daha modern, yumuşak köşeler */
+    background: #fff; /* Beyaz arka plan */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15); /* Daha belirgin, derin gölge efekti */
+    padding: 24px;
+    width: 400px; /* Diyalog genişliği */
+    max-width: 90vw; /* Küçük ekranlar için responsive */
+}
+
+/* 🔥 Başlık Stili */
+h2[mat-dialog-title] {
+    font-size: 24px;
+    font-weight: 700;
+    color: #222; /* Daha koyu, net renk */
+    margin-bottom: 16px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+/* 🔥 İçerik Stili */
+mat-dialog-content {
+    font-size: 18px;
+    color: #444; /* Daha modern bir ton */
+    text-align: center;
+    line-height: 1.6;
+    padding: 20px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 🔥 Butonları düzenleme */
+mat-dialog-actions {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 16px;
+}
+
+/* 🔥 İptal Butonu */
+button[mat-button] {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: #f5f5f5; /* Hafif gri */
+    color: #555;
+    transition: all 0.3s ease-in-out;
+    border: none;
+}
+
+button[mat-button]:hover {
+    background: #e0e0e0; /* Hover efekti */
+    transform: translateY(-2px);
+}
+
+/* 🔥 Silme Butonu (Danger Zone) */
+button[color="warn"] {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ff4d4d, #d32f2f); /* Canlı kırmızı geçiş efekti */
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+    border: none;
+}
+
+button[color="warn"]:hover {
+    background: linear-gradient(135deg, #e60000, #b71c1c); /* Daha koyu kırmızı hover */
+    transform: translateY(-2px);
+    box-shadow: 0px 5px 15px rgba(211, 47, 47, 0.3);
+}
