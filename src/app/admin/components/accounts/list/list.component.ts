@@ -5,9 +5,8 @@ import { AccountService } from '../../../../services/common/models/account.servi
 import { AlertifyService, MessageType, Position } from '../../../../services/admin/alertify.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BaseComponent, spinnerType } from '../../../../base/base.component';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-
 
 @Component({
   selector: 'app-list',
@@ -19,103 +18,75 @@ export class ListComponent extends BaseComponent implements OnInit, AfterViewIni
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['id','userId', 'accountNumber', 'bankId', 'balance', 'currency', 'edit', 'delete'];
+  displayedColumns: string[] = ['id','userId', 'accountNumber', 'bankId', 'balance', 'currency',  'delete'];
   dataSource = new MatTableDataSource<List_Account>();
 
-  totalCount: number = 0; // API’den gelen toplam kayıt sayısı
-  pageSize: number = 5; // Varsayılan sayfa boyutu
-  currentPage: number = 1; // Varsayılan olarak ilk sayfa
+  totalCount: number = 0;
+  pageSize: number = 5;
+  currentPage: number = 0; // backend'in 0-based olduğunu varsayıyoruz
 
   constructor(
     spinner: NgxSpinnerService,
     private accountService: AccountService,
-    private alertify: AlertifyService,
-    private cdr: ChangeDetectorRef // 🔥 UI Güncellemek için ekledik
-
+    private alertifyService: AlertifyService,
+    private cdr: ChangeDetectorRef
   ) {
     super(spinner);
   }
 
   async ngOnInit() {
-    this.showSpinner(spinnerType.BallFussion);
-    await this.loadAccounts(this.currentPage, this.pageSize);
+    await this.loadAccounts();
   }
 
-  ngAfterViewInit() {
-    setTimeout(() => {
-        if (this.paginator) {
-            this.dataSource.paginator = this.paginator; // 🔥 `MatPaginator`'ı `dataSource` ile bağla
-            this.paginator.page.subscribe((event) => {
-                this.onPageChange(event);
-            });
-        }
+  async ngAfterViewInit() {
+    // Sayfa değişikliği ve pageSize değişikliğini dinle
+    this.paginator.page.subscribe(async (event: PageEvent) => {
+      this.currentPage = event.pageIndex;
+      this.pageSize = event.pageSize;
+      await this.loadAccounts();
     });
-}
+  }
+  
 
+  async loadAccounts() {
+    this.showSpinner(spinnerType.BallFussion);
 
-async loadAccounts(page: number, pageSize: number) {
-  console.log("📢 `loadAccounts()` çağrıldı! Gelen Sayfa:", page, "Gelen Sayfa Boyutu:", pageSize);
+    try {
+      const result = await this.accountService.read(this.currentPage, this.pageSize);
 
-  try {
-      const response = await this.accountService.read(page, pageSize);
-      console.log("✅ Gelen API Verisi:", response);
-
-      if (!response || response.data.length === 0) {
-          console.warn("🚨 API boş veri döndürdü!");
-          
-          // Eğer silme sonrası sayfa boşaldıysa önceki sayfaya dön
-          if (this.currentPage > 1) {
-              this.currentPage--;
-              return this.loadAccounts(this.currentPage, pageSize);
-          }
+      if (!result.accounts.length && this.currentPage > 0) {
+        this.currentPage--;
+        return this.loadAccounts();
       }
 
-      this.dataSource.data = response.data;
-      this.totalCount = response.totalCount;
-
-      console.log("📢 Güncellenen Toplam Kayıt Sayısı:", this.totalCount);
-      console.log("📢 Güncellenen Sayfa İndeksi:", this.currentPage - 1);
+      this.dataSource = new MatTableDataSource<List_Account>(result.accounts);
+      this.totalCount = result.totalAccountCount;
 
       setTimeout(() => {
-          if (this.paginator) {
-              console.log("🔄 Paginator Güncelleniyor...");
-              this.paginator.length = this.totalCount;
-              this.paginator.pageSize = pageSize;
-              this.paginator.pageIndex = this.currentPage - 1;
-              this.dataSource.paginator = this.paginator;
-          }
-
-          if (this.sort) {
-              console.log("🔄 Sort Güncelleniyor...");
-              this.dataSource.sort = this.sort;
-          }
+        if (this.paginator) {
+          this.paginator.length = this.totalCount;
+          this.paginator.pageSize = this.pageSize;
+          this.paginator.pageIndex = this.currentPage;
+        }
+        if (this.sort) {
+          this.dataSource.sort = this.sort;
+        }
+        this.cdr.detectChanges();
       });
 
-  } catch (error) {
-      console.error("🚨 `loadAccounts()` sırasında hata oluştu:", error);
+    } catch (error) {
+      this.alertifyService.message("Hesaplar yüklenemedi!", {
+        messageType: MessageType.Error,
+        position: Position.TopRight
+      });
+    } finally {
+      this.hideSpinner(spinnerType.BallFussion);
+    }
   }
-}
 
-
-onPageChange(event: any) {
-  console.log("📢 Sayfa değişti! Yeni sayfa:", event.pageIndex + 1, "Page Size:", event.pageSize);
-
-  this.currentPage = event.pageIndex + 1; 
-  this.pageSize = event.pageSize; 
-
-  this.loadAccounts(this.currentPage, this.pageSize).then(() => {
-      setTimeout(() => {
-          if (this.paginator) {
-              console.log("✅ `paginator.pageIndex` Ayarlanıyor:", this.currentPage - 1);
-              this.paginator.pageIndex = this.currentPage - 1;
-          }
-      });
-  });
-}
-
-
-
-
-
- 
+  async pageChanged(event: PageEvent) {
+    this.currentPage = event.pageIndex;
+    this.pageSize = event.pageSize;
+    await this.loadAccounts();
+  }
 }

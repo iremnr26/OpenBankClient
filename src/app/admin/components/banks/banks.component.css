@@ -1,0 +1,28 @@
+.bank-card {
+    background-color: #f8f9fa;
+    border-left: 6px solid #999;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bank-title {
+    margin: 0 0 12px 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .ziraat { border-color: #b0171f; }
+  .vakifbank { border-color: #fcb900; }
+  .yapikredi { border-color: #005baa; }
+  .halkbank { border-color: #0077b6; }
+  .isbank { border-color: #0057a3; }
+  .garanti { border-color: #009639; }
+  .akbank { border-color: #e30613; }
+  .qnb { border-color: #4e2a84; }
+  .teb { border-color: #00936e; }
+  .ing { border-color: #ff6200; }
+  .bilinmeyen { border-color: #6c757d; }
+  

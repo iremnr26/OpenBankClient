@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './admin/layout/layout.component';
 import { HomeComponent } from './ui/components/home/home.component';
+import { AuthGuard } from './guards/common/auth.guard';
 
 const routes: Routes = [
   { path: "admin", component: LayoutComponent,children: [
@@ -16,7 +17,7 @@ const routes: Routes = [
    // { path: "dashboard",loadChildren:()=> import("./admin/components/dashboard/dashboard.module").
     //  then(module=> module.DashboardModule) }// home ve dashin direk gelmesi için çağırmadan böyle ypaıyoruz 
 
-  ]
+  ], canActivate: [AuthGuard]
   },
   {path: "", component: HomeComponent},
   {path: "accounts", loadChildren: () => import("./ui/components/accounts/accounts.module").
@@ -24,6 +25,12 @@ const routes: Routes = [
    },
    {path: "transactions", loadChildren: () => import("./ui/components/transactions/transactions.module").
     then(module => module.TransactionsModule)
+   },
+   {path: "register", loadChildren: () => import("./ui/components/register/register.module").
+    then(module => module.RegisterModule)
+   },
+   {path: "login", loadChildren: () => import("./ui/components/login/login.module").
+    then(module => module.LoginModule)
    }
 ];
 

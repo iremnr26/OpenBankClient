@@ -13,20 +13,23 @@
             <a class="nav-link active" aria-current="page" routerLink="">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="accounts">Accounts</a>
+            <a class="nav-link" routerLink="exchange">Exchange</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="transactions">Transactions</a>
           </li>
+          <li class="nav-item">
+            <button routerLink="admin" class="btn btn-outline-success" type="submit" *ngIf="authService.isAuthenticated">Admin Panel</button>
+          </li>
           <li class="login">
                 <!-- Kullanıcı giriş yapmamışsa Register ve Login butonlarını göster -->
-                  <button routerLink="register" class="btn btn-outline-success">Register</button>
-                  <button routerLink="login" class="btn btn-outline-success">Login</button>
+                  <button routerLink="register" class="btn btn-outline-success" *ngIf="!authService.isAuthenticated">Register</button>
+                  <button routerLink="login" class="btn btn-outline-success" *ngIf="!authService.isAuthenticated">Login</button>
+                  <button  class="btn btn-outline-success"  (click)="signOut()" *ngIf="authService.isAuthenticated"  >Logout</button>
+
           </li>
 
-          <li class="nav-item">
-            <button routerLink="admin" class="btn btn-outline-success" type="submit">Admin Panel</button>
-          </li>
+         
         </ul>
   
         <form class="d-flex">

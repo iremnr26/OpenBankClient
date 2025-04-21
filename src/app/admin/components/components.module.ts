@@ -4,6 +4,8 @@ import { UsersModule } from './users/users.module';
 import { AccountsModule } from './accounts/accounts.module';
 import { BanksModule } from './banks/banks.module';
 import { TransactionsModule } from './transactions/transactions.module';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 
 
@@ -14,7 +16,9 @@ import { TransactionsModule } from './transactions/transactions.module';
     UsersModule,
     AccountsModule,
     BanksModule,
-    TransactionsModule
+    TransactionsModule,
+       MatTableModule,
+        MatSortModule,
     
   ]
 })

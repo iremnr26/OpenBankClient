@@ -1,1 +1,70 @@
-<p>transactions works!</p>
+<!-- Kullanıcı Giriş Yapmışsa -->
+<div *ngIf="authService.isAuthenticated; else notAllowed">
+    <form (ngSubmit)="transfer()" #transferForm="ngForm" class="transfer-form">
+      <label>Select Account</label>
+      <select [(ngModel)]="model.fromAccountNumber" name="fromAccountNumber" required>
+        <option value="" disabled selected>Pelase select an account</option>
+        <option *ngFor="let acc of accounts" [value]="acc.accountNumber">
+          {{ acc.accountNumber }} - {{ acc.balance }} {{ acc.currency }}
+        </option>
+      </select>
+      <div class="error" *ngIf="transferForm.submitted && !model.fromAccountNumber">Sender account is required.</div>
+  
+      <label>Receiver Account No:</label>
+      <input type="text" [(ngModel)]="model.toAccountNumber" name="toAccountNumber" required />
+      <div class="error" *ngIf="transferForm.submitted && !model.toAccountNumber">Receiver account is required.</div>
+  
+      <label>Amount:</label>
+      <input type="number" [(ngModel)]="model.amount" name="amount" required min="1" />
+      <div class="error" *ngIf="transferForm.submitted && (!model.amount || model.amount <= 0)">Enter a valid amount.</div>
+  
+      <label>Description:</label>
+      <input type="text" [(ngModel)]="model.description" name="description" />
+  
+      <button type="submit">Transfer</button>
+    </form>
+  </div>
+  
+  <!-- Kullanıcı Giriş Yapmamışsa -->
+  <ng-template #notAllowed>
+    <div class="info-page">
+      <h2>🔐 Transaction Feature Unavailable</h2>
+      <p>
+        At <strong>OpenBank</strong>, you can securely transfer money between your accounts or to others with our modern banking experience.
+        This feature requires login for your safety.
+      </p>
+  
+      <button routerLink="/login">Login to Start Transferring</button>
+  
+      <!-- Özellik Kartları -->
+      <div class="row g-4 mt-5">
+        <div class="col-md-6 col-lg-3" *ngFor="let feature of features">
+          <div class="feature-card text-center p-4 h-100 shadow-lg">
+            <div class="icon-circle mb-3">{{ feature.icon }}</div>
+            <h5 class="fw-semibold">{{ feature.title }}</h5>
+            <p class="text-muted">{{ feature.text }}</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- FAQ Section -->
+      <section class="faq-section mt-5">
+        <h3 class="text-center mb-4 fw-bold">Frequently Asked Questions</h3>
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item" *ngFor="let faq of faqs; let i = index">
+            <h2 class="accordion-header" [id]="'q' + i">
+              <button class="accordion-button" type="button" [attr.data-bs-toggle]="'collapse'" [attr.data-bs-target]="'#a' + i" [class.collapsed]="i !== 0">
+                {{ faq.question }}
+              </button>
+            </h2>
+            <div [id]="'a' + i" class="accordion-collapse collapse" [class.show]="i === 0" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                {{ faq.answer }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </ng-template>
+  

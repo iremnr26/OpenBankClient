@@ -1,1 +1,89 @@
-<p>transactions works!</p>
+<div class="transaction-list-container">
+
+    <h2 class="mb-3">📄 Transaction History</h2>
+  
+    <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+        <mat-cell *matCellDef="let tx">{{ tx.id }}</mat-cell>
+      </ng-container>
+  
+      <!-- From Account -->
+      <ng-container matColumnDef="fromAccountId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Sender</mat-header-cell>
+        <mat-cell *matCellDef="let tx">{{ tx.fromAccountId }}</mat-cell>
+      </ng-container>
+  
+      <!-- To Account -->
+      <ng-container matColumnDef="toAccountId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Receiver</mat-header-cell>
+        <mat-cell *matCellDef="let tx">{{ tx.toAccountId }}</mat-cell>
+      </ng-container>
+  <!-- From Account Number -->
+<ng-container matColumnDef="fromAccountNumber">
+    <mat-header-cell *matHeaderCellDef>Sender Account</mat-header-cell>
+    <mat-cell *matCellDef="let tx">{{ tx.fromAccountNumber }}</mat-cell>
+  </ng-container>
+  
+  <!-- From User Name -->
+  <ng-container matColumnDef="fromUserName">
+    <mat-header-cell *matHeaderCellDef>Sender Name</mat-header-cell>
+    <mat-cell *matCellDef="let tx">{{ tx.fromUserName }}</mat-cell>
+  </ng-container>
+  
+  <!-- To Account Number -->
+  <ng-container matColumnDef="toAccountNumber">
+    <mat-header-cell *matHeaderCellDef>Receiver Account</mat-header-cell>
+    <mat-cell *matCellDef="let tx">{{ tx.toAccountNumber }}</mat-cell>
+  </ng-container>
+  
+  <!-- To User Name -->
+  <ng-container matColumnDef="toUserName">
+    <mat-header-cell *matHeaderCellDef>Receiver Name</mat-header-cell>
+    <mat-cell *matCellDef="let tx">{{ tx.toUserName }}</mat-cell>
+  </ng-container>
+  
+      <!-- Amount -->
+      <ng-container matColumnDef="amount">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Amount</mat-header-cell>
+        <mat-cell *matCellDef="let tx">{{ tx.amount | number: '1.2-2' }}</mat-cell>
+      </ng-container>
+  
+      <!-- Description -->
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+        <mat-cell *matCellDef="let tx">{{ tx.description || '-' }}</mat-cell>
+      </ng-container>
+  
+      <!-- Transaction Date -->
+      <ng-container matColumnDef="transactionDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Date</mat-header-cell>
+        <mat-cell *matCellDef="let tx">{{ tx.transactionDate | date:'short' }}</mat-cell>
+      </ng-container>
+  
+      <!-- Delete -->
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+        <mat-cell *matCellDef="let tx">
+          <button mat-icon-button color="warn" (click)="deleteTransaction(tx.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Table Header and Row Definitions -->
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  
+    <!-- Paginator -->
+    <mat-paginator
+      [length]="totalCount"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="[5, 10, 20]"
+      (page)="pageChanged($event)">
+    </mat-paginator>
+  </div>
+  

@@ -18,21 +18,36 @@ export class HttpClientService {
   }
 
   //GET id and all
-    get<T>(requestParameter: Partial<RequestParameters> , id?: string) : Observable<T>{
-      let url: string= "";
-
-      if(requestParameter.fullEndPoint){
-        url=requestParameter.fullEndPoint;
-      }else{
-        url= `${this.url(requestParameter)}${id ? `/${id}` : ""}`;
-
-      }
-      return this.httpClient.get<T>(url,{headers: requestParameter.headers})
+  get<T>(requestParameter: Partial<RequestParameters>, id?: string): Observable<T> {
+    let url: string = "";
+  
+    if (!requestParameter.headers) {
+      const token = localStorage.getItem("accessToken");
+      requestParameter.headers = new HttpHeaders({
+        "Authorization": `Bearer ${token}`
+      });
     }
+  
+    if (requestParameter.fullEndPoint) {
+      url = requestParameter.fullEndPoint;
+    } else {
+      url = `${this.url(requestParameter)}${id ? `/${id}` : ""}`;
+    }
+  
+    return this.httpClient.get<T>(url, { headers: requestParameter.headers });
+  }
+  
 
     //POST
     post<T>(requestParameter: Partial<RequestParameters> , body: Partial<T>): Observable<T>{
       let url : string = "";
+      if (!requestParameter.headers) {
+        const token = localStorage.getItem("accessToken");
+        requestParameter.headers = new HttpHeaders({
+          "Authorization": `Bearer ${token}`
+        });
+      }
+    
       if(requestParameter.fullEndPoint){
         url=requestParameter.fullEndPoint;
       }else{
@@ -68,7 +83,7 @@ export class HttpClientService {
 export class RequestParameters{
 controllers?: string;
 action?: string;
-headers:HttpHeaders;
+headers?:HttpHeaders;
 baseUrl?: string;
 fullEndPoint?:string;
 }

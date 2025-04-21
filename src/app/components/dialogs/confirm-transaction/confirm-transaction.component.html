@@ -1,0 +1,27 @@
+<div class="dialog-container">
+  <div class="dialog-title">💸 Confirm Your Transaction</div>
+
+  <mat-dialog-content class="dialog-content">
+    <div class="info-row">
+      <label>Sender Account</label>
+      <span>{{ data.fromAccountNumber }}</span>
+    </div>
+    <div class="info-row">
+      <label>Receiver Account</label>
+      <span>{{ data.toAccountNumber }}</span>
+    </div>
+    <div class="info-row">
+      <label>Amount</label>
+      <span>{{ data.amount | number: '1.2-2' }} {{ data.currency }}</span>
+    </div>
+    <div class="info-row">
+      <label>Description</label>
+      <span>{{ data.description || 'No description' }}</span>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end" class="dialog-actions">
+    <button mat-button class="cancel-button" (click)="cancel()">Cancel</button>
+    <button mat-flat-button color="primary" class="confirm-button" (click)="confirm()">Confirm</button>
+  </mat-dialog-actions>
+</div>
