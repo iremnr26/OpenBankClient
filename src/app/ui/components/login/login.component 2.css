@@ -1,0 +1,104 @@
+/* Arka plan */
+body {
+    background: linear-gradient(to right, #eeeece, #a1c084);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+  }
+  
+  .is-invalid {
+    border: 1px solid #dc3545 !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+  }
+  
+  /* Form kutusu */
+  .form-container {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(101, 145, 87, 0.15);
+    width: 100%;
+    max-width: 600px;
+    margin: 80px auto;
+    border: 2px solid #eeeece;
+  }
+  
+  /* Başlık */
+  .form-title {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #659157;
+  }
+  
+  /* Etiketler */
+  .form-label {
+    font-weight: 500;
+    color: #659157;
+    margin-bottom: 5px;
+  }
+  
+  /* Açıklama metni */
+  .form-text {
+    font-size: 0.85rem;
+    color: #a1c084;
+  }
+  
+  /* Giriş alanları */
+  input.form-control {
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 0.95rem;
+    border: 1px solid #a1c084;
+    background-color: #fefee9;
+    color: #4e5c3a;
+  }
+  
+  input.form-control:focus {
+    border-color: #659157;
+    box-shadow: 0 0 5px #a1c084;
+  }
+  
+  /* Butonlar */
+  .btn-primary {
+    background-color: #eeeece;
+    border: 2px solid #659157;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    color: #659157;
+    margin: 5px;
+
+  }
+  
+  .btn-primary:hover {
+    background-color: #a1c084;
+    color: #659157;
+    border-color: #a1c084;
+  }
+  
+  .btn-secondary {
+    background-color: #ffffff;
+    border: 2px solid #659157;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #659157;
+    transition: all 0.3s ease;
+    margin: 5px;
+
+  }
+  
+  .btn-secondary:hover {
+    background-color: #a1c084;
+    color: #ffffff;
+    border-color: #a1c084;
+  }
+  

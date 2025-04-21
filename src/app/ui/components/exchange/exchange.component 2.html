@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>💱 Exchange Rates</h2>
+
+  <label for="currencySelect">Select Currency:</label>
+  <select [(ngModel)]="selectedCurrency" (change)="getExchange()" id="currencySelect">
+    <option *ngFor="let cur of currencies" [value]="cur">{{ cur }}</option>
+  </select>
+
+  <div class="currency-card">
+    <h3>{{ currencyNames[selectedCurrency] || selectedCurrency }} - Currency Rates (/TRY)</h3>
+  
+    <div
+      class="daily-rate"
+      *ngFor="let item of exchangeResult"
+      [ngClass]="{
+        'increase': item.isIncreased,
+        'decrease': !item.isIncreased
+      }"
+    >
+      <p><strong>{{ item.Tarih }}</strong></p>
+      <p>Buying: {{ item.buying }}</p>
+      <p>Selling: {{ item.selling }}</p>
+      <p>
+        {{ item.isIncreased ? '📈 Increased' : '📉 Decreased' }}
+      </p>
+    </div>
+  </div>
+  
+</div>

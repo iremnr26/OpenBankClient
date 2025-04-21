@@ -1,0 +1,178 @@
+/* Genel ayarlar */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #EEEECE;
+    color: #659157;
+  }
+  
+  h1{
+    font-size: 2rem;
+
+  }
+   h2, h5 {
+    color: #659157;
+    font-weight: bold;
+    font-size: 1rem;
+
+  }
+  
+  p {
+    color: #A1C084;
+    font-size: 1rem;
+  }
+  
+  /* Başlık gradyeni */
+  .gradient-text {
+    background: linear-gradient(to right, #A1C084, #659157);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Butonlar */
+  .btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .btn-gradient {
+    background: linear-gradient(to right, #A1C084, #659157);
+    color: #ffffff;
+    border: none;
+  }
+  
+  .btn-gradient:hover {
+    background: #659157;
+    color: #EEEECE;
+  }
+  
+  .btn-outline-dark {
+    border: 2px solid #659157;
+    color: #659157;
+    background-color: transparent;
+  }
+  
+  .btn-outline-dark:hover {
+    background-color: #659157;
+    color: #EEEECE;
+  }
+  
+  .btn-light {
+    background-color: #EEEECE;
+    color: #659157;
+    border: 2px solid #659157;
+  }
+  
+  .btn-light:hover {
+    background-color: #659157;
+    color: #EEEECE;
+  }
+  
+  /* Feature Cards */
+  .feature-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+  
+  .icon-circle {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: #659157;
+    color: #ffffff;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Stats Section */
+  .stats-section {
+    background-color: #ffffff;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  
+  .text-gradient {
+    background: linear-gradient(to right, #A1C084, #659157);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2rem;
+  }
+  
+  /* Accordion (FAQ) */
+  .accordion {
+    border-radius: 8px;
+  }
+  .text-center mt-5{
+    margin: 10px;
+  }
+  .accordion-button {
+    background-color: #A1C084;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 1rem;
+    border: none;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .accordion-button:not(.collapsed) {
+    background-color: #659157;
+    color: #ffffff;
+  }
+  
+  .accordion-body {
+    padding: 1rem;
+    background-color: #EEEECE;
+    color: #659157;
+  }
+  
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(to right, #A1C084, #659157);
+    border-radius: 16px;
+    padding: 60px 20px;
+  }
+  
+  .cta-section h2,
+  .cta-section p {
+    color: #ffffff;
+  }
+  
+  /* Footer */
+  .gradient-footer {
+    background: linear-gradient(to right, #A1C084, #659157);
+    color: #ffffff;
+  }
+  
+  .footer a {
+    color: #ffffff;
+    margin: 0 10px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .footer a:hover {
+    color: #EEEECE;
+  }
+  
+  .footer .text-warning {
+    color: #EEEECE;
+  }
+  

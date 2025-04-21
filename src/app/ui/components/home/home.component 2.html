@@ -1,0 +1,180 @@
+<div class="container py-5">
+    <div class="text-center mb-5">
+      <h1 class="display-5 fw-bold gradient-text" *ngIf="!authService.isAuthenticated">Welcome to OpenBank</h1>
+      <h1 class="display-5 fw-bold gradient-text" *ngIf="authService.isAuthenticated">Welcome Let's Explore your Accounts</h1>
+
+      <h1 *ngIf="authService.identityCheck" class="lead text-secondary">
+       Welcome {{ userName }}! Your gateway to smarter banking. Secure. Fast. Smart.
+      </h1>
+      
+          </div>
+  
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card text-center p-4 h-100 shadow-lg">
+          <div class="icon-circle mb-3">🔐</div>
+          <h5 class="fw-semibold">Secure Access</h5>
+          <p class="text-muted">OAuth 2.0 authentication keeps your data safe and encrypted.</p>
+        </div>
+      </div>
+  
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card text-center p-4 h-100 shadow-lg">
+          <div class="icon-circle mb-3">📊</div>
+          <h5 class="fw-semibold">Account Overview</h5>
+          <p class="text-muted">Track your balances and history with real-time insights.</p>
+        </div>
+      </div>
+  
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card text-center p-4 h-100 shadow-lg">
+          <div class="icon-circle mb-3">🏦</div>
+          <h5 class="fw-semibold">Multi-Bank Support</h5>
+          <p class="text-muted">Manage all your banks from one unified platform.</p>
+        </div>
+      </div>
+  
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card text-center p-4 h-100 shadow-lg">
+          <div class="icon-circle mb-3">⚙️</div>
+          <h5 class="fw-semibold">Easy Integration</h5>
+          <p class="text-muted">Plug our API into your app with ease and speed.</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="text-center mt-5">
+      <a routerLink="/accounts" class="btn btn-lg btn-gradient me-3"*ngIf="authService.isAuthenticated">Explore Your Accounts</a>
+      <a routerLink="/login" class="btn btn-lg btn-outline-dark" *ngIf="!authService.isAuthenticated">Login</a>
+    </div>
+
+    <!-- FAQ Bölümü -->
+<section class="py-5 bg-light" id="faq">
+  <div class="container-frec">
+    <h2 class="text-center mb-4 fw-bold">Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="q1">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1">
+            Is OpenBank safe to use?
+          </button>
+        </h2>
+        <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Absolutely. We use OAuth 2.0 and bank-level encryption to secure your data.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="q2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2">
+            Can I connect multiple banks?
+          </button>
+        </h2>
+        <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes! You can connect accounts from different banks and view them all in one place.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="q3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3">
+            Is OpenBank free to use?
+          </button>
+        </h2>
+        <div id="a3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, the core services are completely free for individual users.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Blog / Haber Bölümü -->
+<section class="py-5" id="news">
+  <div class="container">
+    <h2 class="text-center mb-4 fw-bold">OpenBank News & Insights</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">📢 New API Integration Released</h5>
+            <p class="card-text text-muted">We just rolled out v2.0 of our API — faster, more secure, and developer-friendly.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">🔒 Security First</h5>
+            <p class="card-text text-muted">Read our full security whitepaper to see how we keep your data protected.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">🌐 OpenBank Partners with Global Banks</h5>
+            <p class="card-text text-muted">We're now connected to over 300+ banks worldwide. Welcome aboard!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- İstatistik Göstergeleri -->
+<section class="py-5 bg-light" id="stats">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-5">Trusted by Thousands</h2>
+    <div class="row g-4">
+      <div class="col-md-3">
+        <h1 class="text-gradient">100K+</h1>
+        <p class="text-muted">Users</p>
+      </div>
+      <div class="col-md-3">
+        <h1 class="text-gradient">350+</h1>
+        <p class="text-muted">Partner Banks</p>
+      </div>
+      <div class="col-md-3">
+        <h1 class="text-gradient">99.99%</h1>
+        <p class="text-muted">Uptime</p>
+      </div>
+      <div class="col-md-3">
+        <h1 class="text-gradient">1M+</h1>
+        <p class="text-muted">Transactions Synced</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA (Call to Action) -->
+<section class="py-5 cta-section text-white text-center" id="get-started">
+  <div class="container">
+    <h2 class="fw-bold mb-3">Ready to take control of your finances?</h2>
+    <p class="mb-4 fs-5">Join thousands of users managing their money smarter with OpenBank.</p>
+    <a routerLink="/register" class="btn btn-lg btn-light fw-semibold" *ngIf="!authService.isAuthenticated">Get Started Now</a>
+  </div>
+</section>
+
+  </div>
+
+  
+  <footer class="footer mt-5 pt-4 pb-3 gradient-footer text-white">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <ul class="list-inline mb-3 mb-md-0">
+        <li class="list-inline-item"><a href="https://github.com/iremnr26" target="_blank">GitHub</a></li>
+        <li class="list-inline-item"><a href="https://www.linkedin.com/in/irem-nur-camcioglu" target="_blank">LinkedIn</a></li>
+        <li class="list-inline-item"><a routerLink="/about">About Me</a></li>
+        <li class="list-inline-item"><a routerLink="/contact">Contact</a></li>
+      </ul>
+      <div class="small">
+        &copy; {{ currentYear }} with ❤️ by
+        <a href="https://github.com/iremnr26" target="_blank" class="text-warning text-decoration-none fw-semibold">İrem Nur Camcıoğlu</a>
+      </div>
+    </div>
+  </footer>
+  

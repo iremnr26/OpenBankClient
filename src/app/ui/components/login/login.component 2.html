@@ -1,0 +1,17 @@
+<div class="form-container">
+  <h2 class="form-title">Login to Your Account</h2>
+
+  <div class="form-group">
+    <label for="username" class="form-label">User Name</label>
+    <input #txtUsernameOrEmail type="text" class="form-control" id="username" placeholder="User Name or E-mail">
+    <small class="form-text text-muted invalid-feedback">***</small>
+  </div>
+
+  <div class="form-group">
+    <label for="password" class="form-label">Password</label>
+    <input #txtPassword type="password" class="form-control" id="password" placeholder="passsword">
+  </div>
+
+  <button type="submit" class="btn btn-primary" (click)="login(txtUsernameOrEmail.value, txtPassword.value)">Giriş Yap</button>
+  <a routerLink="/password-reset" class="btn btn-secondary">Şifremi Unuttum</a>
+</div>

@@ -1,0 +1,154 @@
+/* === Genel Sayfa Stil === */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #EEEECE;
+    color: #333;
+  }
+  
+  /* === Transfer Form === */
+  .transfer-form {
+    max-width: 850px;
+    height: 470px;
+    margin: 60px auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .transfer-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #659157;
+  }
+  
+  .transfer-form select,
+  .transfer-form input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .transfer-form input:focus,
+  .transfer-form select:focus {
+    border-color: #659157;
+    outline: none;
+  }
+  
+  .transfer-form button {
+    background-color: #659157;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    float: right;
+  }
+  
+  .transfer-form button:hover {
+    background-color: #4e7747;
+  }
+  
+  .error {
+    color: #E05263;
+    font-size: 13px;
+    margin-top: -12px;
+    margin-bottom: 10px;
+  }
+  
+  /* === Not Allowed - Bilgilendirme Sayfası === */
+  .info-page {
+    background-color: #ffffff;
+    padding: 60px 40px;
+    max-width: 90%;
+    margin: 60px auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .info-page h2 {
+    color: #E05263;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .info-page p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  
+  .info-page button {
+    background-color: #659157;
+    color: white;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background 0.3s ease;
+  }
+  
+  .info-page button:hover {
+    background-color: #4e7747;
+  }
+  
+  /* === Özellik Kartları === */
+  .feature-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px 20px;
+    transition: transform 0.3s ease;
+    border-top: 5px solid #A1C084;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .icon-circle {
+    font-size: 30px;
+    background-color: #A1C084;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    line-height: 60px;
+    margin: 0 auto 16px auto;
+  }
+  
+  /* === FAQ Bölümü === */
+  .faq-section h3 {
+    color: #659157;
+    font-size: 24px;
+    margin-bottom: 32px;
+  }
+  
+  .accordion-button {
+    background-color: #fdfdfd;
+    color: #659157;
+    font-weight: 600;
+  }
+  
+  .accordion-button:not(.collapsed) {
+    background-color: #A1C084;
+    color: white;
+  }
+  
+  .accordion-body {
+    background-color: #fff;
+    color: #444;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  

@@ -1,0 +1,108 @@
+<div class="form-container">
+    <div class="form-title">Create an Account</div>
+  
+    <form [formGroup]="frm" (ngSubmit)="onSubmit(frm.value)">
+      <!-- First Name -->
+      <div class="mb-3">
+        <label for="firstName" class="form-label">First Name</label>
+        <input formControlName="name"
+          type="text"
+          class="form-control"
+          id="firstName"
+          placeholder="Enter your first name" 
+          [ngClass]="{'is-invalid': f['name'].touched && f['name'].invalid}"/>
+        <div *ngIf="f['name'].touched && f['name'].invalid " class="text-danger small">
+          First name is required and must be at least 2 characters.
+        </div>
+      </div>
+  
+      <!-- Last Name -->
+      <div class="mb-3">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input formControlName="lastname"
+          type="text"
+          class="form-control"
+          id="lastName"
+          placeholder="Enter your last name"
+          [ngClass]="{'is-invalid': f['lastname'].touched && f['lastname'].invalid}" />
+        <div *ngIf="f['lastname'].touched && f['lastname'].invalid" class="text-danger small">
+          Last name is required and must be at least 2 characters.
+        </div>
+      </div>
+  
+      <!-- Username -->
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input formControlName="username"
+          type="text"
+          class="form-control"
+          id="username"
+          placeholder="Choose a username" 
+          [ngClass]="{'is-invalid': f['username'].touched && f['username'].invalid}"/>
+        <div *ngIf="f['username'].touched && f['username'].invalid" class="text-danger small">
+          Username is required and must be at least 4 characters.
+        </div>
+      </div>
+  
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input formControlName="email"
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Enter your email" 
+          [ngClass]="{'is-invalid': f['email'].touched && f['email'].invalid}"/>
+        <div *ngIf="f['email'].touched && f['email'].invalid" class="text-danger small">
+          Please enter a valid email.
+        </div>
+      </div>
+  
+      <!-- Password -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input formControlName="password"
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="Enter your password"
+          [ngClass]="{'is-invalid': f['password'].touched && f['password'].invalid}" />
+        <div *ngIf="f['password'].touched && f['password'].invalid" class="text-danger small">
+          Password must be at least 6 characters.
+        </div>
+      </div>
+  
+      <!-- Confirm Password -->
+      <div class="mb-3">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <input formControlName="confirmpass"
+          type="password"
+          class="form-control"
+          id="confirmPassword"
+          placeholder="Re-enter your password" 
+          [ngClass]="{'is-invalid': f['confirmpass'].touched && f['confirmpass'].invalid}"/>
+        <div *ngIf="f['confirmpass'].touched && f['confirmpass'].invalid" class="text-danger small">
+          Confirmation password is required.
+        </div>
+        <div *ngIf="frm.errors?.['mismatch'] && f['confirmpass'].touched" class="text-danger small">
+          Passwords do not match.
+        </div>
+      </div>
+  
+      <!-- Terms and Conditions -->
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="terms" formControlName="terms" />
+        <label class="form-check-label text-success" for="terms">
+          I agree to the <a href="#" style="color: #659157">Terms & Conditions</a>
+        </label>
+        <div *ngIf="f['terms'].touched && f['terms'].invalid" class="text-danger small">
+          You must agree to the terms.
+        </div>
+      </div>
+      
+  
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary w-100" [disabled]="frm.invalid">Register</button>
+    </form>
+  </div>
+  
