@@ -8,21 +8,37 @@ Angular-based Frontend Design and Development (UI & Admin Panel)
 As part of the frontend development, I built a responsive and dynamic single-page web application
 using Angular. The frontend was divided into two main sections: UI and Admin.
 The Admin Panel becomes accessible after user login and includes the following features:
+
 • Viewing a list of all accounts
+
 • Creating new accounts
+
 • Filtering accounts by bank
+
 • Viewing transaction history associated with the accounts
+
 The UI section includes:
+
 • A landing page that introduces the application
+
 • A transaction page for transferring money (available after login)
+
 • A currency listing page that fetches real-time exchange rates
+
 I enhanced the frontend with additional tools and libraries, including:
+
 • JavaScript functions for specific UI interactions
+
 • Angular Bootstrap and jQuery integration for responsive design and DOM manipulation
+
 • AlertifyJS and Toastr for customized notification messages
+
 • Spinner animations for loading indicators
+
 • Pagination for account and transaction listing
+
 • A reusable Delete Directive and Modal Dialog for delete confirmations
+
 • A user registration form built with Reactive Forms, including real-time form validation and
 error display
 These implementations allowed me to design a clean, user-friendly, and maintainable interface
