@@ -4,7 +4,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 #Type of work 
 Angular-based Frontend Design and Development (UI & Admin Panel)
 
-#Description / Açıklama
+#Description 
 As part of the frontend development, I built a responsive and dynamic single-page web application
 using Angular. The frontend was divided into two main sections: UI and Admin.
 The Admin Panel becomes accessible after user login and includes the following features:
